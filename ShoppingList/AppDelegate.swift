@@ -16,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Create an ItemStorage
+        let itemStorage = ItemStorage()
+        
+        // Creage an ImageStorage
+        let imageStorage = ImageStorage()
+
+        // Access the ShoppingListViewController and set its item storage and image storage
+        let navController = window!.rootViewController as! UINavigationController
+        let shoppingListViewController = navController.topViewController as! ShoppingListViewController
+        shoppingListViewController.itemStorage = itemStorage
+        shoppingListViewController.imageStorage = imageStorage
+        
         return true
     }
 
