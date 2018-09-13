@@ -14,7 +14,7 @@ class Item: NSObject {
     var price: Double
     var itemKey: String
     // TODO: item tax (most likely an optional)
-    
+
     init(name: String, price: Double) {
         self.name = name
         self.price = price

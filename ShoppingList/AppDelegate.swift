@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create an ItemStorage
         let itemStorage = ItemStorage()
         
-        // Creage an ImageStorage
+        // Create an ImageStorage
         let imageStorage = ImageStorage()
 
         // Access the ShoppingListViewController and set its item storage and image storage

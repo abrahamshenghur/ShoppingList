@@ -36,15 +36,27 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         view.endEditing(true)
     }
     
+    // TODO: QUESTION - Is this the right approach to display the item's corresponding row number for the navigationItem's title?
+    var itemRowNumber: Int = 0 {
+        didSet {
+            itemRowNumber = 1
+        }
+    }
+    
+    
+    // MARK:- Setup Interface; a reference to Item.swift to display contents
+
     var item: Item! {
         didSet {
-            navigationItem.title = item.name
+            navigationItem.title = "Item " + "\(itemRowNumber)" + "  -  " + item.name
         }
     }
     var imageStorage: ImageStorage!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        nameField.becomeFirstResponder()
         
         nameField.text = item.name
         priceField.text = "\(item.price)"
@@ -58,6 +70,9 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         imageView.image = imageToDisplay
     }
     
+    
+    // MARK: - Disappearing View
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -70,11 +85,11 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UINavigationCo
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        nameField.resignFirstResponder()
         return true
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any?]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         
         // Get picked image from info dictionary
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage

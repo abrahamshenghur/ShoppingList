@@ -10,7 +10,13 @@ import UIKit
 
 class ItemStorage {
     
+    
+    // MARK: - Property to store list of Items
+    
     var itemList = [Item]()
+    
+    
+    // MARK: - Create List; adding it to array of instances of Item
     
     @discardableResult func createList() -> Item {
         let newItem = Item(random: true)
@@ -20,11 +26,17 @@ class ItemStorage {
         return newItem
     }
     
+    
+    // MARK: - Deleting Rows
+    
     func removeItem(_ item: Item) {
         if let index = itemList.index(of: item) {
             itemList.remove(at: index)
         }
     }
+    
+    
+    // MARK: - Moving Rows
     
     func moveItem(from fromIndex: Int, to toIndex: Int) {
         if fromIndex == toIndex {
