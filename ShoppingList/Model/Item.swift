@@ -13,12 +13,16 @@ class Item: NSObject {
     var name: String
     var price: Double
     var itemKey: String
+    var isSelected: Bool
+    var quantity: Int
     // TODO: item tax (most likely an optional)
 
     init(name: String, price: Double) {
         self.name = name
         self.price = price
         self.itemKey = UUID().uuidString
+        self.isSelected = true
+        self.quantity = 1
 
         super.init()
     }

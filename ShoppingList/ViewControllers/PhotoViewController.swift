@@ -36,21 +36,10 @@ class PhotoViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         view.endEditing(true)
     }
     
-    // TODO: QUESTION - Is this the right approach to display the item's corresponding row number for the navigationItem's title?
-    var itemRowNumber: Int = 0 {
-        didSet {
-            itemRowNumber = 1
-        }
-    }
     
-    
-    // MARK:- Setup Interface; a reference to Item.swift to display contents
+    // MARK: - Setup Interface; a reference to Item.swift to display contents
 
-    var item: Item! {
-        didSet {
-            navigationItem.title = "Item " + "\(itemRowNumber)" + "  -  " + item.name
-        }
-    }
+    var item: Item!
     var imageStorage: ImageStorage!
     
     override func viewWillAppear(_ animated: Bool) {
